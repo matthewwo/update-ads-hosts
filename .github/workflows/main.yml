@@ -1,7 +1,7 @@
 name: update-surge-ads-hosts
 on:
   schedule:
-    - cron: '28 2 * * *'
+    - cron: '29 3 * * *'
 
 jobs:
   update-surge-ads-hosts:
