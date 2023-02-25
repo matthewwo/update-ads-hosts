@@ -1,5 +1,8 @@
 name: update-surge-ads-hosts
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: '*/5 * * * *'
 
