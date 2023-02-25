@@ -1,0 +1,23 @@
+name: update-surge-ads-hosts
+on:
+  schedule:
+    # every day at 00:00 (UTC)
+    - cron: '0 0 * * *'
+
+jobs:
+  update-surge-ads-hosts:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: '${{ secrets.GH_TOKEN }}'
+      GIST_ID: '${{ secrets.GIST_ID }}'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '19.x'
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Run npm start
+        run: |
+          npm run start
