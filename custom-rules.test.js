@@ -13,6 +13,7 @@ describe('custom-rules.txt', async () => {
   it('should be a text file', async () => {
     const file = await fs.readFile('./custom-rules.txt')
     expect(file).toBeInstanceOf(Buffer)
+    expect(file.toString()).length.toBeGreaterThan(0)
   })
 
   it('should not be empty', async () => {
