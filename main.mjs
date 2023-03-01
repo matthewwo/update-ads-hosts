@@ -1,3 +1,5 @@
+import fs from 'fs/promises'
+
 const neoHostsURL = "https://cdn.jsdelivr.net/gh/geekdada/surge-list/domain-set/neohosts.txt"
 
 const chineseFiltersURL = "https://cdn.jsdelivr.net/gh/geekdada/surge-list/domain-set/chinese-filter.txt"
@@ -8,22 +10,8 @@ const trackingProtection = "https://cdn.jsdelivr.net/gh/geekdada/surge-list/doma
 
 const urls = [neoHostsURL, chineseFiltersURL, dnsFilter, trackingProtection]
 
-const customRules = `
-DOMAIN-SUFFIX,applvn.com
-DOMAIN-SUFFIX,ingest.sentry.io
-DOMAIN-SUFFIX,smaato.net
-DOMAIN-SUFFIX,paasmi.com
-DOMAIN-SUFFIX,pz.pe
-DOMAIN-SUFFIX,adv.lihkg.com
-DOMAIN-SUFFIX,appier.net
-DOMAIN-SUFFIX,advertising.com
-DOMAIN-SUFFIX,ybp.yahoo.com
-DOMAIN-SUFFIX,geo.yahoo.com
-DOMAIN-SUFFIX,yap.yahoo.com
-DOMAIN-SUFFIX,ssp.yahoo.com
-DOMAIN-SUFFIX,actonservice.com
-DOMAIN-SUFFIX,apps.iocnt.de
-`.trim().split('\n')
+const customRulesText = await (await fs.readFile('./custom-rules.txt')).toString()
+const customRules = customRulesText.trim().split('\n')
 
 const domains = new Map()
 
