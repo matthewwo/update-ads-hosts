@@ -1,8 +1,10 @@
 {
   "name": "update-surge-ads-hosts",
   "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
-    "start": "node main.mjs",
+    "start": "node main.js",
     "test": "vitest"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import fs from 'fs/promises'
-import { optimizeRules } from './utils/optimizeRules.mjs'
+import { optimizeRules } from './utils/optimizeRules.js'
 
 const neoHostsURL = "https://cdn.jsdelivr.net/gh/geekdada/surge-list/domain-set/neohosts.txt"
 
@@ -61,9 +61,9 @@ async function uploadToGist(hosts) {
     description,
     public: false,
     files: {
-        [fileName]: {
-            content: hosts
-        }
+      [fileName]: {
+        content: hosts
+      }
     }
   }
 
