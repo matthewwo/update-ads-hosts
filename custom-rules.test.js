@@ -21,9 +21,14 @@ describe('custom-rules.txt', async () => {
 
   it('should not contain any duplicate rules', async () => {
     const rules = fileContent.split('\n').filter(Boolean)
-    const uniqueRules = new Set(rules)
 
-    expect(rules.length).toBe(uniqueRules.size)
+    const uniqueRules = new Set()
+    for (const rule of rules) {
+      if (uniqueRules.has(rule)) {
+        expect.fail(`Duplicate rule: ${rule}`)
+      }
+      uniqueRules.add(rule)
+    }
   })
 
   it('should not contain any invalid rules', async () => {
