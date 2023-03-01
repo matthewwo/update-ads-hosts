@@ -12,6 +12,5 @@ DOMAIN-SUFFIX,yap.yahoo.com
 DOMAIN-SUFFIX,ssp.yahoo.com
 DOMAIN-SUFFIX,actonservice.com
 DOMAIN-SUFFIX,apps.iocnt.de
-DOMAIN-SUFFIX,paasmi.com
 DOMAIN-SUFFIX,xyz
 DOMAIN-SUFFIX,top

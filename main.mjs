@@ -1,4 +1,5 @@
 import fs from 'fs/promises'
+import { optimizeRules } from './utils/optimizeRules.mjs'
 
 const neoHostsURL = "https://cdn.jsdelivr.net/gh/geekdada/surge-list/domain-set/neohosts.txt"
 
@@ -13,32 +14,6 @@ const urls = [neoHostsURL, chineseFiltersURL, dnsFilter, trackingProtection]
 const customRulesText = await (await fs.readFile('./custom-rules.txt')).toString()
 const customRules = customRulesText.trim().split('\n')
 
-const domains = new Map()
-
-function optimizeRules(input) {
-  const cleanedInput = input.trim().split('\n').map(line => line.replace(/DOMAIN-SUFFIX,/, ''))
-  const sortedInput = Array.from(new Set(cleanedInput)).sort((a, b) => { return a.length - b.length })
-
-  sortedInput.forEach(domain => {
-    const domainParts = domain.split('.')
-    const subDomainDepth = domainParts.length - 1
-
-    for (let i = 2; i <= subDomainDepth + 1; i += 1) {
-      const key = domainParts.slice(-i).join('.')
-      if (domains.has(key)) {
-        domains.get(key).push(domain)
-        break
-      } else if (i === subDomainDepth + 1) {
-        domains.set(domain, [])
-      }
-    }
-  })
-
-  const sortedDomains = Array.from(domains.keys()).sort((a, b) => { return (a.length - b.length) + (a > b ? 1 : a !== b ? -1 : 0) })
-
-  return sortedDomains.map(domain => `DOMAIN-SUFFIX,${domain}`).join('\n')
-}
-
 async function fetchSurgeRules(url) {
   const res = await fetch(url)
 
@@ -51,12 +26,13 @@ async function batchFetchSurgeRules(urls) {
   const merged = new Set()
   for (const url of urls) {
     const surgeRules = await fetchSurgeRules(url)
-    for (const rule of surgeRules.split('\n')){
-      merged.add(rule)
-    }
+    // for (const rule of surgeRules.split('\n')){
+    //   merged.add(rule)
+    // }
   }
 
   for (const rule of customRules) {
+    // console.log(rule)
     merged.add(rule)
   }
 
@@ -104,4 +80,5 @@ async function uploadToGist(hosts) {
 }
 
 const rules = await batchFetchSurgeRules(urls)
-uploadToGist(rules)
+// uploadToGist(rules)
+console.log(rules)

@@ -3,6 +3,9 @@
   "type": "module",
   "scripts": {
     "start": "node main.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^0.29.2"
   }
 }
