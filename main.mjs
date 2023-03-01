@@ -80,4 +80,3 @@ async function uploadToGist(hosts) {
 
 const rules = await batchFetchSurgeRules(urls)
 uploadToGist(rules)
-console.log(rules)
