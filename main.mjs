@@ -26,13 +26,12 @@ async function batchFetchSurgeRules(urls) {
   const merged = new Set()
   for (const url of urls) {
     const surgeRules = await fetchSurgeRules(url)
-    // for (const rule of surgeRules.split('\n')){
-    //   merged.add(rule)
-    // }
+    for (const rule of surgeRules.split('\n')){
+      merged.add(rule)
+    }
   }
 
   for (const rule of customRules) {
-    // console.log(rule)
     merged.add(rule)
   }
 
@@ -75,10 +74,10 @@ async function uploadToGist(hosts) {
   })
 
   const githubRes = await res.json()
-  //console.log(githubRes)
+  // console.log(githubRes)
 	console.log('uploaded to gist')
 }
 
 const rules = await batchFetchSurgeRules(urls)
-// uploadToGist(rules)
+uploadToGist(rules)
 console.log(rules)
