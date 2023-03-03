@@ -44,7 +44,12 @@ async function convertSurgeRulesToAdguardRules(surgeRules) {
   const adguardRules = surgeRules.split('\n').map(rule => {
     const [type, domain] = rule.split(',')
     if (type === 'DOMAIN-SUFFIX') {
-      return `||${domain}^`
+      if (domain.contains('.')) {
+        return `||${domain}^`
+      } else {
+        // domain is a top level domain
+        return `||*.${domain}^`
+      }
     } else {
       return null
     }
