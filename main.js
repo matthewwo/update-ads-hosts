@@ -40,16 +40,25 @@ async function batchFetchSurgeRules(urls) {
   return optimizeRules(rules)
 }
 
-async function uploadToGist(hosts) {
+async function convertSurgeRulesToAdguardRules(surgeRules) {
+  const adguardRules = surgeRules.split('\n').map(rule => {
+    const [type, domain] = rule.split(',')
+    if (type === 'DOMAIN-SUFFIX') {
+      return `||${domain}^`
+    } else {
+      return null
+    }
+  }).filter(Boolean).join('\n')
+  return adguardRules
+}
+
+async function uploadToGist(hosts, fileName, description) {
   const ghToken = process.env.GH_TOKEN
   const gistId = process.env.GIST_ID
 
   if (!ghToken || !gistId) {
     throw new Error('missing GH_TOKEN or GIST_ID')
   }
-
-  const fileName = "surge-rules.txt"
-  const description = "Ads hosts for Surge"
 
   const headers = {
     Accepts: "application/vnd.github+json",
@@ -75,9 +84,15 @@ async function uploadToGist(hosts) {
 
   const githubRes = await res.json()
   // console.log(githubRes)
-	console.log('uploaded to gist')
+	console.log(`Uploaded ${fileName} to gist`)
 }
 
-const rules = await batchFetchSurgeRules(urls)
-console.log('Generated rules: ', rules.split('\n').length)
-uploadToGist(rules)
+const surgeRules = await batchFetchSurgeRules(urls)
+const adguardRules = await convertSurgeRulesToAdguardRules(surgeRules)
+
+console.log(`Generated ${surgeRules.split('\n').length} rules`)
+
+console.log('Uploading Surge rules to gist...')
+await uploadToGist(surgeRules, "surge-rules.txt", "Ads hosts for Surge")
+console.log('Uploading Adguard rules to gist...')
+await uploadToGist(adguardRules, "adguard-rules.txt", "Ads hosts for Adguard")
