@@ -16,3 +16,4 @@ DOMAIN-SUFFIX,xyz
 DOMAIN-SUFFIX,top
 DOMAIN-SUFFIX,media.net
 DOMAIN-SUFFIX,zijieapi.com
+DOMAIN-SUFFIX,ott.cibntv.net
