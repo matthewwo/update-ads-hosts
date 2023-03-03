@@ -52,7 +52,7 @@ async function convertSurgeRulesToAdguardRules(surgeRules) {
   return adguardRules
 }
 
-async function uploadToGist(hosts, fileName, description) {
+async function uploadToGist(files) {
   const ghToken = process.env.GH_TOKEN
   const gistId = process.env.GIST_ID
 
@@ -69,11 +69,7 @@ async function uploadToGist(hosts, fileName, description) {
   const body = {
     description,
     public: false,
-    files: {
-      [fileName]: {
-        content: hosts
-      }
-    }
+    files
   }
 
   const res = await fetch(`https://api.github.com/gists/${gistId}`, {
@@ -92,7 +88,14 @@ const adguardRules = await convertSurgeRulesToAdguardRules(surgeRules)
 
 console.log(`Generated ${surgeRules.split('\n').length} rules`)
 
-console.log('Uploading Surge rules to gist...')
-await uploadToGist(surgeRules, "surge-rules.txt", "Ads hosts for Surge")
-console.log('Uploading Adguard rules to gist...')
-await uploadToGist(adguardRules, "adguard-rules.txt", "Ads hosts for Adguard")
+
+console.log('Uploading rules to gist...')
+const gistFiles = {
+  "surge-rules.txt": {
+    content: surgeRules
+  },
+  "adguard-rules.txt": {
+    content: adguardRules
+  }
+}
+await uploadToGist(gistFiles)
