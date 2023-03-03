@@ -67,7 +67,7 @@ async function uploadToGist(files) {
   }
 
   const body = {
-    description,
+    description: "Ads rules for Surge and Adguard",
     public: false,
     files
   }
@@ -80,7 +80,7 @@ async function uploadToGist(files) {
 
   const githubRes = await res.json()
   // console.log(githubRes)
-	console.log(`Uploaded ${fileName} to gist`)
+	console.log('Uploaded to gist.')
 }
 
 const surgeRules = await batchFetchSurgeRules(urls)
