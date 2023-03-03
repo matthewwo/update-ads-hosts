@@ -14,4 +14,4 @@ DOMAIN-SUFFIX,actonservice.com
 DOMAIN-SUFFIX,apps.iocnt.de
 DOMAIN-SUFFIX,xyz
 DOMAIN-SUFFIX,top
-DOMAIN-SUFFIX,http://media.net
+DOMAIN-SUFFIX,media.net
