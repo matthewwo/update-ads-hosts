@@ -17,3 +17,4 @@ DOMAIN-SUFFIX,top
 DOMAIN-SUFFIX,media.net
 DOMAIN-SUFFIX,zijieapi.com
 DOMAIN-SUFFIX,ott.cibntv.net
+DOMAIN-SUFFIX,hpplay.com.cn
