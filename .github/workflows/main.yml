@@ -18,12 +18,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '19.x'
+          cache: 'yarn'
+      - name: Setup yarn
+        run: |
+          npm install -g yarn
       - name: Install dependencies
         run: |
-          npm install
-      - name: Run npm test
+          yarn install
+      - name: Run test
         run: |
-          npm run test
-      - name: Run npm start
+          yarn test
+      - name: Generate files
         run: |
-          npm run start
+          yarn start
