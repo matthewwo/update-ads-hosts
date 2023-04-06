@@ -12,8 +12,6 @@ DOMAIN-SUFFIX,yap.yahoo.com
 DOMAIN-SUFFIX,ssp.yahoo.com
 DOMAIN-SUFFIX,actonservice.com
 DOMAIN-SUFFIX,apps.iocnt.de
-DOMAIN-SUFFIX,xyz
-DOMAIN-SUFFIX,top
 DOMAIN-SUFFIX,media.net
 DOMAIN-SUFFIX,zijieapi.com
 DOMAIN-SUFFIX,hpplay.com.cn
