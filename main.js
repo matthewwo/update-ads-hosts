@@ -57,6 +57,18 @@ async function convertSurgeRulesToAdguardRules(surgeRules) {
   return adguardRules
 }
 
+async function convertSurgeRulesToQuanmultXRules(surgeRules) {
+  const adguardRules = surgeRules.split('\n').map(rule => {
+    const [type, domain] = rule.split(',')
+    if (type === 'DOMAIN-SUFFIX') {
+      return `DOMAIN-SUFFIX,${domain},reject`
+    } else {
+      return null
+    }
+  }).filter(Boolean).join('\n')
+  return adguardRules
+} 
+
 async function uploadToGist(files) {
   const ghToken = process.env.GH_TOKEN
   const gistId = process.env.GIST_ID
@@ -90,6 +102,7 @@ async function uploadToGist(files) {
 
 const surgeRules = await batchFetchSurgeRules(urls)
 const adguardRules = await convertSurgeRulesToAdguardRules(surgeRules)
+const quanmultXRules = await convertSurgeRulesToQuanmultXRules(surgeRules)
 
 console.log(`Generated ${surgeRules.split('\n').length} rules`)
 
@@ -101,6 +114,9 @@ const gistFiles = {
   },
   "adguard-rules.txt": {
     content: adguardRules
-  }
+  },
+  "quanmultx-rules.txt": {
+    content: quanmultXRules
+  }, 
 }
 await uploadToGist(gistFiles)
