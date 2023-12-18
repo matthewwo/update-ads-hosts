@@ -17,3 +17,4 @@ DOMAIN-SUFFIX,zijieapi.com
 DOMAIN-SUFFIX,hpplay.com.cn
 DOMAIN-SUFFIX,ott.cibntv.net
 DOMAIN-SUFFIX,research.qq.com
+DOMAIN-SUFFIX,rubiconproject.com
