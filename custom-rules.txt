@@ -19,3 +19,4 @@ DOMAIN-SUFFIX,ott.cibntv.net
 DOMAIN-SUFFIX,research.qq.com
 DOMAIN-SUFFIX,rubiconproject.com
 DOMAIN-SUFFIX,bidmyqps.xyz
+DOMAIN-SUFFIX,pb.lihkg.com
