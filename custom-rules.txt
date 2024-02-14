@@ -20,3 +20,4 @@ DOMAIN-SUFFIX,research.qq.com
 DOMAIN-SUFFIX,rubiconproject.com
 DOMAIN-SUFFIX,bidmyqps.xyz
 DOMAIN-SUFFIX,pb.lihkg.com
+DOMAIN-SUFFIX,adsappier.com
