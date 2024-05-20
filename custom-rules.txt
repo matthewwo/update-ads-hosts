@@ -24,3 +24,5 @@ DOMAIN-SUFFIX,adsappier.com
 DOMAIN-SUFFIX,appiersig.com
 DOMAIN-SUFFIX,xiaohongshu.com
 DOMAIN-SUFFIX,inmobi.com
+DOMAIN-SUFFIX,adsrvr.org
+advertising.com
