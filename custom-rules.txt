@@ -22,6 +22,6 @@ DOMAIN-SUFFIX,bidmyqps.xyz
 DOMAIN-SUFFIX,pb.lihkg.com
 DOMAIN-SUFFIX,adsappier.com
 DOMAIN-SUFFIX,appiersig.com
-DOMAIN-SUFFIX,xiaohongshu.com
 DOMAIN-SUFFIX,inmobi.com
 DOMAIN-SUFFIX,adsrvr.org
+DOMAIN-SUFFIX,taboola.com
