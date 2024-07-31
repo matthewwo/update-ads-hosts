@@ -25,3 +25,4 @@ DOMAIN-SUFFIX,appiersig.com
 DOMAIN-SUFFIX,inmobi.com
 DOMAIN-SUFFIX,adsrvr.org
 DOMAIN-SUFFIX,taboola.com
+DOMAIN-SUFFIX,adkernel.com
