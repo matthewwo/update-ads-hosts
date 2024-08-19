@@ -67,7 +67,7 @@ async function convertSurgeRulesToQuanmultXRules(surgeRules) {
     }
   }).filter(Boolean).join('\n')
   return adguardRules
-} 
+}
 
 async function uploadToGist(files) {
   const ghToken = process.env.GH_TOKEN
@@ -112,11 +112,11 @@ const gistFiles = {
   "surge-rules.txt": {
     content: surgeRules
   },
-  "adguard-rules.txt": {
-    content: adguardRules
-  },
-  "quanmultx-rules.txt": {
-    content: quanmultXRules
-  }, 
+  // "adguard-rules.txt": {
+  //   content: adguardRules
+  // },
+  // "quanmultx-rules.txt": {
+  //   content: quanmultXRules
+  // },
 }
 await uploadToGist(gistFiles)
