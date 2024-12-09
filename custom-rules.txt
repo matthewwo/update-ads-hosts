@@ -27,4 +27,4 @@ DOMAIN-SUFFIX,adsrvr.org
 DOMAIN-SUFFIX,taboola.com
 DOMAIN-SUFFIX,adkernel.com
 DOMAIN-SUFFIX,app-analytics-services.com
-DOMAIN-KEYWORD,taboola
+DOMAIN-SUFFIX,taboola.map.fastly.net
