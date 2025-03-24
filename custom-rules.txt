@@ -30,4 +30,3 @@ DOMAIN-SUFFIX,app-analytics-services.com
 DOMAIN-SUFFIX,taboola.map.fastly.net
 DOMAIN-SUFFIX,hpplay.cn
 DOMAIN-SUFFIX,pxf.io
-DOMAIN-SUFFIX,smaato.net
